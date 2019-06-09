@@ -11,9 +11,9 @@ provider:
   runtime: nodejs8.10
 
 functions:
-  app:
-    handler: handler.app
+  melpa-bot-client:
+    handler: handler.api
     events:
       - http:
-          method: any
           path: /{proxy+}
+          method: ANY
