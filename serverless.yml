@@ -4,15 +4,16 @@ service:
 # Add the serverless-webpack plugin
 plugins:
   - serverless-webpack
+  - serverless-express
 
 provider:
   name: aws
   runtime: nodejs8.10
 
 functions:
-  entry:
-    handler: handler.entry
+  app:
+    handler: handler.app
     events:
       - http:
           method: any
-          path: entry
+          path: /{proxy+}
