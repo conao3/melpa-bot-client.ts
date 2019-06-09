@@ -2,9 +2,9 @@ import * as bodyParser from 'body-parser';
 import * as express from 'serverless-express/express';
 import * as handler from 'serverless-express/handler';
 
-const app: express.Application = express();
-
 //////////////////////////////////////////////////
+
+const app: express.Application = express();
 
 app.use(bodyParser.json({ strict: false }));
 app.use((_req: express.Request, res: express.Response, next: express.NextFunction): void => {
@@ -14,8 +14,14 @@ app.use((_req: express.Request, res: express.Response, next: express.NextFunctio
     next()
 });
 
+//////////////////////////////////////////////////
+
 app.get('/', async (_req: express.Request, res: express.Response): Promise<void> => {
     res.json({apis : "/hello"});
+});
+
+app.get('/hello', async (_req: express.Request, res: express.Response): Promise<void> => {
+    res.json({message : "hello world"});
 });
 
 //////////////////////////////////////////////////
