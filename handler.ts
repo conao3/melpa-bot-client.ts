@@ -17,7 +17,7 @@ app.use((_req: express.Request, res: express.Response, next: express.NextFunctio
 //////////////////////////////////////////////////
 
 app.get('/', async (_req: express.Request, res: express.Response): Promise<void> => {
-    res.json({apis : {"/hello" "/ping"}});
+    res.json({apis : ["/hello", "/ping"]});
 });
 
 app.get('/hello', async (_req: express.Request, res: express.Response): Promise<void> => {
@@ -28,6 +28,11 @@ app.get('/hello', async (_req: express.Request, res: express.Response): Promise<
 
 app.get('/ping', async (_req: express.Request, res: express.Response): Promise<void> => {
     res.json({message : "Melpa-bot-client works fine!"});
+});
+
+app.get('/github', async (req: express.Request, res: express.Response): Promise<void> => {
+    res.json({message : "github",
+              req : req});
 });
 
 //////////////////////////////////////////////////
