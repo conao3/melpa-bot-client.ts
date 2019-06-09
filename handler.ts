@@ -17,11 +17,17 @@ app.use((_req: express.Request, res: express.Response, next: express.NextFunctio
 //////////////////////////////////////////////////
 
 app.get('/', async (_req: express.Request, res: express.Response): Promise<void> => {
-    res.json({apis : "/hello"});
+    res.json({apis : {"/hello" "/ping"}});
 });
 
 app.get('/hello', async (_req: express.Request, res: express.Response): Promise<void> => {
     res.json({message : "hello world"});
+});
+
+//////////////////////////////////////////////////
+
+app.get('/ping', async (_req: express.Request, res: express.Response): Promise<void> => {
+    res.json({message : "Melpa-bot-client works fine!"});
 });
 
 //////////////////////////////////////////////////
