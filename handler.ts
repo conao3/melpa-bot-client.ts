@@ -33,7 +33,13 @@ app.get('/ping', async (_req: express.Request, res: express.Response): Promise<v
 
 app.post('/github', async (req: express.Request, res: express.Response): Promise<void> => {
     res.type('json');
-    res.json({ req : req.body });
+    switch (req.header('X-GitHub-Event')) {
+        case 'ping':
+            res.json({message : "Melpa-bot-client works fine!"});
+            break;
+        default:
+            res.json({req : req.body });
+    };;
 });
 
 //////////////////////////////////////////////////
