@@ -6,6 +6,7 @@ import * as handler from 'serverless-express/handler';
 
 const app: express.Application = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json({ strict: false }));
 app.use((_req: express.Request, res: express.Response, next: express.NextFunction): void => {
     res.header('Access-Control-Allow-Methods', 'GET,POST,PUT,DELETE,OPTIONS');
