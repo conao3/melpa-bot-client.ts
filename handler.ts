@@ -31,9 +31,9 @@ app.get('/ping', async (_req: express.Request, res: express.Response): Promise<v
     res.json({message : "Melpa-bot-client works fine!"});
 });
 
-app.get('/github', async (req: express.Request, res: express.Response): Promise<void> => {
-    res.json({message : "github",
-              req : req});
+app.post('/github', async (req: express.Request, res: express.Response): Promise<void> => {
+    res.type('json');
+    res.json({ req : req.body });
 });
 
 //////////////////////////////////////////////////
