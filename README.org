@@ -1,66 +1,72 @@
-#+author: conao
-#+date: <2019-05-24 Fri>
+#+title: melpa-bot-client.ts
+#+author: conao3
 
-[[https://github.com/conao3/melpa-bot-client.ts][https://raw.githubusercontent.com/conao3/files/master/blob/headers/png/melpa-bot-client.ts.png]]
 [[https://github.com/conao3/melpa-bot-client.ts/blob/master/LICENSE][https://img.shields.io/github/license/conao3/melpa-bot-client.ts.svg?style=flat-square]]
 [[https://github.com/conao3/melpa-bot-client.ts/releases][https://img.shields.io/github/tag/conao3/melpa-bot-client.ts.svg?style=flat-square]]
-[[https://travis-ci.org/conao3/melpa-bot-client.ts][https://img.shields.io/travis/conao3/melpa-bot-client.ts/master.svg?style=flat-square]]
-[[https://app.codacy.com/project/conao3/melpa-bot-client.ts/dashboard][https://img.shields.io/codacy/grade/1a6befcbdfdb4b1fb37a6f7f040a75b2.svg?logo=codacy&style=flat-square]]
-[[https://www.patreon.com/conao3][https://img.shields.io/badge/patreon-become%20a%20patron-orange.svg?logo=patreon&style=flat-square]]
-[[https://twitter.com/conao_3][https://img.shields.io/badge/twitter-@conao__3-blue.svg?logo=twitter&style=flat-square]]
-[[https://join.slack.com/t/conao3-support/shared_invite/enQtNjUzMDMxODcyMjE1LTA4ZGRmOWYwZWE3NmE5NTkyZjk3M2JhYzU2ZmRkMzdiMDdlYTQ0ODMyM2ExOGY0OTkzMzZiMTNmZjJjY2I5NTM][https://img.shields.io/badge/chat-on_slack-blue.svg?logo=slack&style=flat-square]]
 
-* Table of Contents
-- [[#description][Description]]
-- [[#install][Install]]
-- [[#usage][Usage]]
-- [[#information][Information]]
-  - [[#donation][Donation]]
-  - [[#community][Community]]
-  - [[#contribution][Contribution]]
-  - [[#migration][Migration]]
-  - [[#license][License]]
-  - [[#author][Author]]
-  - [[#contributors][Contributors]]
-  - [[#welcome-pr][Welcome PR]]
-  - [[#special-thanks][Special Thanks]]
+* Overview
 
-* Description
-melpa-bot-client.ts is client for melpa-bot.
+A TypeScript client for [[https://github.com/conao3/melpa-bot][melpa-bot]], built on AWS Lambda using the Serverless Framework. This service handles GitHub webhook events and provides a REST API for MELPA package management automation.
 
-* Install
-Just clone.
+* Features
+
+- Serverless architecture on AWS Lambda
+- GitHub webhook integration for pull request events
+- Express-based REST API with CORS support
+- TypeScript with webpack bundling
+
+* Requirements
+
+- Node.js
+- npm or yarn
+- AWS CLI (configured with appropriate credentials)
+- Serverless Framework
+
+* Installation
+
+Clone the repository and install dependencies:
+
+#+begin_src shell
+git clone https://github.com/conao3/melpa-bot-client.ts.git
+cd melpa-bot-client.ts
+npm install
+#+end_src
 
 * Usage
 
+** Local Development
 
-* Information
-** Donation
-I love OSS and I am dreaming of working on it as *full-time* job.
+Run the service locally using serverless-offline:
 
-*With your support*, I will be able to spend more time at OSS!
+#+begin_src shell
+npx serverless offline
+#+end_src
 
-[[https://www.patreon.com/conao3][https://c5.patreon.com/external/logo/become_a_patron_button.png]]
+** Deployment
 
-** Community
-All feedback and suggestions are welcome!
+Deploy to AWS Lambda:
 
-You can use github issues, but you can also use [[https://join.slack.com/t/conao3-support/shared_invite/enQtNjUzMDMxODcyMjE1LTA4ZGRmOWYwZWE3NmE5NTkyZjk3M2JhYzU2ZmRkMzdiMDdlYTQ0ODMyM2ExOGY0OTkzMzZiMTNmZjJjY2I5NTM][Slack]]
-if you want a more casual conversation.
+#+begin_src shell
+npx serverless deploy
+#+end_src
 
-** Contribution
-We welcome PR!
+** API Endpoints
 
-** Migration
+| Endpoint   | Method | Description                    |
+|------------+--------+--------------------------------|
+| =/=        | GET    | List available API endpoints   |
+| =/hello=   | GET    | Hello world response           |
+| =/ping=    | GET    | Health check                   |
+| =/github=  | POST   | GitHub webhook receiver        |
 
-** License
+* License
+
 #+begin_example
-  Affero General Public License Version 3 (AGPLv3)
-  Copyright (c) Naoya Yamashita - https://conao3.com
-  https://github.com/conao3/melpa-bot-client.ts/blob/master/LICENSE
+Affero General Public License Version 3 (AGPLv3)
+Copyright (c) Naoya Yamashita - https://conao3.com
+https://github.com/conao3/melpa-bot-client.ts/blob/master/LICENSE
 #+end_example
 
-** Author
-- Naoya Yamashita ([[https://github.com/conao3][conao3]])
+* Author
 
-** Contributors
+Naoya Yamashita ([[https://github.com/conao3][conao3]])
