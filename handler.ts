@@ -37,8 +37,9 @@ app.post('/github', async (req: express.Request, res: express.Response): Promise
         case 'ping':
             res.json({message : "Melpa-bot-client works fine!"});
             break;
-        case 'pull_request'
-            res.json({})
+        case 'pull_request':
+            res.json({});
+            break;
         default:
             res.json({req : req.body });
     };;
